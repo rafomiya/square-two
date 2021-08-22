@@ -8,10 +8,10 @@ class Database
 
     function __construct()
     {
-        $this->server = getenv("SERVER");
-        $this->user = getenv("USER");
-        $this->dbname = getenv("DBNAME");
-        $this->password = getenv("PASSWORD");
+        $this->server = getenv("DB_SERVER");
+        $this->user = getenv("DB_USER");
+        $this->dbname = getenv("DB_NAME");
+        $this->password = getenv("DB_PASSWORD");
 
         $this->pdo = new PDO('mysql:dbname=' . $this->dbname . ';host=' . $this->server, $this->user, $this->password);
     }
