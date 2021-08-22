@@ -28,8 +28,7 @@
         <?php include __DIR__ . '/navbar.html'; ?>
         <?php include __DIR__ . '/header.html'; ?>
 
-        <?php include __DIR__ . '/products.php';
-        ?>
+        <?php include __DIR__ . '/products.php'; ?>
 
         <?php include __DIR__ . '/footer.html'; ?>
     </div>
