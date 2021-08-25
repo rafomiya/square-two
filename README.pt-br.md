@@ -1,6 +1,6 @@
 # square-two
 
-[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/rafomiya/square-two/README.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/rafomiya/square-two/blob/main/README.md)
 
 
 
