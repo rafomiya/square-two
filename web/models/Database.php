@@ -16,24 +16,33 @@ class Database
         $this->pdo = new PDO('mysql:dbname=' . $this->dbname . ';host=' . $this->server, $this->user, $this->password);
     }
 
+    private function get_conn()
+    {
+        return $this->pdo;
+    }
+
+    private function get_view($view_name)
+    {
+        $conn = $this->get_conn();
+
+        $sql = "SELECT view_code from view where view_name=:view_name;";
+
+        $stm = $conn->prepare($sql);
+        $stm->bindValue(":view_name", $view_name);
+        $stm->execute();
+
+        $code = $stm->fetchAll()[0]["view_code"];
+
+        return $code;
+    }
+
     public function get_products()
     {
-        $conn = new Database();
+        $conn = $this->pdo;
 
-        $pdo = &$conn->pdo;
+        $sql = $this->get_view("list_products");
 
-        $sql = "SELECT
-            id_prod,
-            name_cat,
-            name_brand,
-            model_prod,
-            preco_prod,
-            descr_prod
-        from
-            product inner join brand on product.id_brand = brand.id_brand
-            inner join category on product.id_category = category.id_cat";
-
-        $stm = $pdo->prepare($sql);
+        $stm = $conn->prepare($sql);
         $stm->execute();
 
         return $stm->fetchAll();
