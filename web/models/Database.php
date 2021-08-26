@@ -1,4 +1,5 @@
 <?php
+
 class Database
 {
     private string $server;
@@ -21,30 +22,22 @@ class Database
         return $this->pdo;
     }
 
-    private function get_view($view_name)
-    {
-        $conn = $this->get_conn();
-
-        $sql = "SELECT view_code from view where view_name=:view_name;";
-
-        $stm = $conn->prepare($sql);
-        $stm->bindValue(":view_name", $view_name);
-        $stm->execute();
-
-        $code = $stm->fetchAll()[0]["view_code"];
-
-        return $code;
-    }
-
     public function get_products()
     {
-        $conn = $this->pdo;
 
-        $sql = $this->get_view("list_products");
+        $conn = $this->get_conn();
+
+        $sql = $this->get_view("get_products");
 
         $stm = $conn->prepare($sql);
         $stm->execute();
 
         return $stm->fetchAll();
+    }
+
+    private function get_view($view)
+    {
+        require_once __DIR__ . '/SQLViews.php';
+        return $views[$view];
     }
 }
