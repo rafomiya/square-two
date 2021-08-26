@@ -10,7 +10,7 @@
             echo '<img class="img-responsive" src="./images/gts3m.jpg" style="width: 100%;"/>';
             echo '<h2>' . $prod['model'] . '</h2>';
             echo '<h3>Marca: ' . $prod['brand'] . '</h3>';
-            echo '<h4>R$' . number_format($prod['preco'], 2, ",", ".") . '</h4>';
+            echo '<h4>R$' . number_format($prod['price'], 2, ',', '.') . '</h4>';
             echo '<p>' . $prod['category'] . '</p>';
             echo '<p>' . $prod['description'] . '</p>';
             echo '</div>';
