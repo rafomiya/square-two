@@ -4,8 +4,7 @@
 
 
 
-Just
-Project of a virtual store, made with HTML, CSS and PHP. Deployed on [Heroku](www.heroku.com).
+Project of a virtual store, made with HTML, CSS and PHP. Deployed on [Heroku](https://www.heroku.com/).
 The current progress of the project can be seen [here](https://square-two.herokuapp.com/).
 
 
@@ -20,27 +19,22 @@ The current progress of the project can be seen [here](https://square-two.heroku
 
 ## Starting with Heroku:
 
-​	Obtaining the Heroku CLI (in case you don't have it yet):
-
-```bash
-sudo snap install --classic heroku
-```
-
-​	Login in through the command line:
+​	Assuming you already have the Heroku CLI installed, log in through the command line:
 
 ```bash
 heroku login -i
 ```
 
-​	Creating the app on the project root:
+​	Creating the application on the project root:
 
 ```bash
+cd <project_folder>
 heroku create
 ```
 
 <hr>
 
-## Project requirements:
+## Project dependencies:
 
 ​	We need a `composer.json` file on the root of the application, declaring each dependency of our project on the `require` key. 
 ​	e.g.:
@@ -66,7 +60,7 @@ heroku create
 
 ## `Procfile`:
 
-​	The next step is to create a `Procfile` on the root directory of our project. This file will instruct Heroku on how to start the application. To do so, create the file and write the following:
+​	The next step is to create a `Procfile` on the root directory of our project. This file, that has no extension, will instruct Heroku on how to start the application. To do so, create the file and write the following:
 
 ​	```web: vendor/bin/heroku-php-apache2```
 
@@ -78,7 +72,7 @@ heroku create
 
 ​	In this example, the document root is the `public` directory.
 
-> OBS: Usually, the `vendor` directory contains sensitive data of our project. It must be always on the `.gitignore`, for security reasons :)
+> OBS: Usually, the `vendor` directory contains sensitive data of our project. It must be always on the `.gitignore`, for security reasons. If you don't know what that is, check it out [here](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files).
 
 
 
@@ -86,7 +80,7 @@ heroku create
 
 ## Environment variables
 
-​	Sensitive data, such as passwords or tokens, must be kept in a safe way. Therefore, we use environment variables, that can't be seen on the source code, but can be accessed through special methods.
+​	Sensitive data, such as passwords or tokens, must be kept in a safe way. Therefore, we use environment variables, that can't be seen on the source code, but can be accessed through special methods, like `getenv()`.
 
 ### `heroku config` command
 
@@ -108,7 +102,7 @@ heroku config:set PASSWORD=123
 heroku config
 ```
 
-> Warning! Don't give too generic names to your environment variables. They could be overrid by predefined Heroku varables.
+> Warning! Don't give too generic names to your environment variables. They could be overrid by predefined Heroku varables. I learned this the hard way too :sweat_smile:.
 
 
 
@@ -116,7 +110,7 @@ heroku config
 
 ## Deploy
 
-​	Now that we have all setup, we can make the deploy. But before we do that, verify if all files containing sensitive data are on the `.gitignore`. After that, run:
+​	Now that we're all set, we can finally deploy. But before we do that, verify if all files containing sensitive data are on the `.gitignore`. After that, run:
 
 ```bash
 git add . # adding the files to commit

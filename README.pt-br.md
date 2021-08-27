@@ -4,8 +4,7 @@
 
 
 
-Just
-Projeto de uma loja virtual, feito com HTML, CSS e PHP. Deploy feito na [Heroku](www.heroku.com).
+Projeto de uma loja virtual, feito com HTML, CSS e PHP. Deploy feito na [Heroku](https://www.heroku.com/).
 O progresso da aplicação pode ser visto [aqui](https://square-two.herokuapp.com/).
 
 
@@ -20,13 +19,7 @@ O progresso da aplicação pode ser visto [aqui](https://square-two.herokuapp.co
 
 ## Iniciando o Heroku
 
-​	Para obter a CLI do Heroku (caso ainda não tenha):
-
-```bash
-sudo snap install --classic heroku
-```
-
-​	Execute o comando abaixo e siga os passos para fazer login:
+​	Assumindo que você já tenha a CLI do Heroku, execute o comando abaixo e siga os passos para fazer login:
 
 ```bash
 heroku login -i
@@ -35,6 +28,7 @@ heroku login -i
 ​	Para criar sua aplicação, use o seguinte comando na raiz do projeto:
 
 ```bash
+cd <diretorio_do_projeto>
 heroku create
 ```
 
@@ -66,7 +60,7 @@ heroku create
 
 ## `Procfile`
 
-​	O próximo passo é definir um arquivo `Procfile`, que deve ficar, obrigatoriamente, na raiz do projeto. De forma resumida, esse arquivo de texto instrui como iniciar a aplicação. Crie o arquivo e escreva isso nele:
+​	O próximo passo é definir um arquivo `Procfile`, que deve ficar, obrigatoriamente, na raiz do projeto. De forma resumida, esse arquivo de texto, que não possui extensão, instrui como iniciar a aplicação. Crie o arquivo e escreva isso nele:
 
 ​	```web: vendor/bin/heroku-php-apache2```
 
@@ -78,7 +72,7 @@ heroku create
 
 ​	No exemplo acima, a *document root* é a pasta `public`.
 
-> OBS: Normalmente, o diretório `vendor` contém as dependências da aplicação. Ela deve ser sempre mantida no arquivo `.gitignore`, por questões de segurança :)
+> OBS: Normalmente, o diretório `vendor` contém as dependências da aplicação. Ela deve ser sempre mantida no arquivo `.gitignore`, por questões de segurança. Se você não sabe o que é um `.gitignore`, dê uma olhada [nisso](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files).
 
 
 
@@ -86,7 +80,7 @@ heroku create
 
 ## Variáveis de ambiente
 
-​	Informações confidenciais, como senhas e tokens, devem ser armazenadas e acessadas de maneira segura. Portanto, usam-se as variáveis de ambiente, que apesar de não serem visíveis no código fonte, podem ser acessadas por meio de métodos especiais.
+​	Informações confidenciais, como senhas e tokens, devem ser armazenadas e acessadas de maneira segura. Portanto, usam-se as variáveis de ambiente, que apesar de não serem visíveis no código fonte, podem ser acessadas por meio de métodos especiais, como o `getenv()`.
 
 ### `heroku config`
 
@@ -108,7 +102,7 @@ heroku config:set PASSWORD=123
 heroku config
 ```
 
-> Ateção! Não dê nomes muito genéricos às suas variáveis de ambiente. Elas podem ser sobrepostas por variáveis pré-definidas da Heroku no momento do deploy.
+> Ateção! Não dê nomes muito genéricos às suas variáveis de ambiente. Elas podem ser sobrepostas por variáveis pré-definidas da Heroku no momento do deploy. Eu aprendi isso da maneira difícil :sweat_smile:.
 
 
 
