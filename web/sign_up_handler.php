@@ -13,5 +13,7 @@ try {
     $user->insert_user();
     // mensagem de sucesso
 } catch (Exception $e) {
-    //mensagem de erro
+    var_dump($e);
 }
+
+var_dump($user);

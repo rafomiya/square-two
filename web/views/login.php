@@ -16,13 +16,13 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!-- External CSS -->
-    <link type="text/css" rel="stylesheet" href="style.css" />
+    <link type="text/css" rel="stylesheet" href="./../n.css" />
 </head>
 
 <body id="login-body">
-    <?php include 'views/navbar.html'; ?>
+    <?php include 'navbar.html'; ?>
 
-    <form id="login" class="p-5" action="login_handler.php" method="post">
+    <form id="login" class="p-5" action="./../login_handler.php" method="post">
         <h2>Login</h2>
         <div class="form-group row mt-3">
             <label for="email" class="text-lg-end col-sm col-form-label">E-mail</label>

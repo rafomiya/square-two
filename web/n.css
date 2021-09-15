@@ -111,7 +111,7 @@ div[id="header"]>img {
 
 @media screen and (max-width: 600px) {
     .prod {
-        width: 100%;
+        width: 100% !important;
     }
     body {
         padding: 0;
