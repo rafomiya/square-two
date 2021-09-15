@@ -72,7 +72,8 @@ heroku create
 
 ​	In this example, the document root is the `public` directory.
 
-> OBS: Usually, the `vendor` directory contains sensitive data of our project. It must be always on the `.gitignore`, for security reasons. If you don't know what that is, check it out [here](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files).
+> OBS: Usually, the `vendor` directory contains sensitive data of our project. It must be always on the `.gitignore`, for security reasons :).I learned this the hard way :sweat_smile:.
+
 
 
 
@@ -102,7 +103,7 @@ heroku config:set PASSWORD=123
 heroku config
 ```
 
-> Warning! Don't give too generic names to your environment variables. They could be overrid by predefined Heroku variables. I learned this the hard way too :sweat_smile:.
+> Warning! Don't give too generic names to your environment variables. They could be overrid by predefined Heroku varables. I learned this the hard way :sweat_smile:.
 
 
 
@@ -110,12 +111,10 @@ heroku config
 
 ## Deploy
 
-​	Now that we're all set, we can finally deploy. But before we do that, verify if all files containing sensitive data are on the `.gitignore`. After that, run:
+​	Now that we're all set, we can finally deploy. But before we do that, verify if all files containing sensitive data are on the `.gitignore`. If you don't know what it is, check it out [here](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files). After that, run:
 
 ```bash
 git add . # adding the files to commit
 git commit -m "<commit_message>" # commiting
 git push heroku main # deploying
 ```
-
-	That's it! Your web PHP application is now accessible. Run `heroku open` to see it :)

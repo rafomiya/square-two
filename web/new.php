@@ -1,0 +1,5 @@
+
+<?php
+$page_title = "Lançamentos";
+$child_view = 'new.php';
+require_once __DIR__ . '/layout.php';

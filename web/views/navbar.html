@@ -1,55 +1,67 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
+<nav class="navbar navbar-dark navbar-expand-lg w-100">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Square-2</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hamburguer"
-            aria-controls="hamburguer" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="hamburguer">
+        <div class="mx-lg-auto order-0">
+            <a class="navbar-brand mx-auto abs" href="index.php">Square-two</a>
+            <button class="navbar-toggler flex-grow-sm-1 flex-grow-0 me-2" type="button" data-bs-toggle="collapse"
+                data-bs-target=".hamburguer">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse hamburguer">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">2x2</a>
+                    <a class="nav-link" aria-current="page" href="new.php">Lançamentos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">3x3</a>
+                    <a class="nav-link" aria-current="page" href="category.php?c=1">2x2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="category.php?c=2">3x3</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Big Cubes
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">4x4</a></li>
-                        <li><a class="dropdown-item" href="#">5x5</a></li>
-                        <li><a class="dropdown-item" href="#">6x6</a></li>
-                        <li><a class="dropdown-item" href="#">7x7</a></li>
-                        <li><a class="dropdown-item" href="#">8x8</a></li>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="category.php?c=5">4x4</a></li>
+                        <li><a class="dropdown-item" href="category.php?c=6">5x5</a></li>
+                        <li><a class="dropdown-item" href="category.php?c=7">6x6</a></li>
+                        <li><a class="dropdown-item" href="category.php?c=8">7x7</a></li>
+                        <li><a class="dropdown-item" href="category.php?c=14">8x8</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="aaaaa" role="button" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         Variados
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="aaaaa">
-                        <li><a class="dropdown-item" href="#">Pyraminx</a></li>
-                        <li><a class="dropdown-item" href="#">Megaminx</a></li>
-                        <li><a class="dropdown-item" href="#">Mirror</a></li>
-                        <li><a class="dropdown-item" href="#">Square-1</a></li>
-                        <li><a class="dropdown-item" href="#">Skewb</a></li>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="category.php?c=4">Pyraminx</a></li>
+                        <li><a class="dropdown-item" href="category.php?c=3">Megaminx</a></li>
+                        <li><a class="dropdown-item" href="category.php?c=15">Mirror</a></li>
+                        <li><a class="dropdown-item" href="category.php?c=10">Square-1</a></li>
+                        <li><a class="dropdown-item" href="category.php?c=9">Skewb</a></li>
                     </ul>
                 </li>
             </ul>
-            <form class="d-flex" style="margin-right: 3em;">
+            <form class="d-flex me-lg-2">
                 <input class="form-control me-2" type="search" placeholder="O que você procura?" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">
-                    <span class="bi-search" role="img" aria-label="search-icon"></span>
+                    <span class="bi bi-search" role="img" aria-label="search-icon"></span>
                 </button>
             </form>
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#">
-                        <span class="bi-person-fill" role="img" aria-label="person-icon"></span>
+                        <span class="bi bi-cart-fill" role="img" aria-label="cart-icon"></span>
+                        Carrinho
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="login.php">
+                        <span class="bi bi-person-fill" role="img" aria-label="person-icon"></span>
                         Login
                     </a>
                 </li>
@@ -57,4 +69,3 @@
         </div>
     </div>
 </nav>
-<hr class="my-auto" style="width: 100%;">

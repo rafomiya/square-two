@@ -65,14 +65,13 @@ heroku create
 ​	```web: vendor/bin/heroku-php-apache2```
 
 ### *Document root*
-
 ​	A *document root* é o diretório em que os arquivos `.php` se localizam. É possível alterá-la no `Procfile`, adicionando o caminho da pasta no final do arquivo:
 
 ​	```web: vendor/bin/heroku-php-apache2 public/```
 
 ​	No exemplo acima, a *document root* é a pasta `public`.
 
-> OBS: Normalmente, o diretório `vendor` contém as dependências da aplicação. Ela deve ser sempre mantida no arquivo `.gitignore`, por questões de segurança. Se você não sabe o que é um `.gitignore`, dê uma olhada [nisso](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files).
+> OBS: Normalmente, o diretório `vendor` contém as dependências da aplicação. Ela deve ser sempre mantida no arquivo `.gitignore`, por questões de segurança :)
 
 
 
@@ -80,7 +79,7 @@ heroku create
 
 ## Variáveis de ambiente
 
-​	Informações confidenciais, como senhas e tokens, devem ser armazenadas e acessadas de maneira segura. Portanto, usam-se as variáveis de ambiente, que apesar de não serem visíveis no código fonte, podem ser acessadas por meio de métodos especiais, como o `getenv()`.
+​	Informações confidenciais, como senhas e tokens, devem ser armazenadas e acessadas de maneira segura. Portanto, usam-se as variáveis de ambiente, que apesar de não serem visíveis no código fonte, podem ser acessadas por meio de métodos especiais.
 
 ### `heroku config`
 
@@ -102,7 +101,7 @@ heroku config:set PASSWORD=123
 heroku config
 ```
 
-> Ateção! Não dê nomes muito genéricos às suas variáveis de ambiente. Elas podem ser sobrepostas por variáveis pré-definidas da Heroku no momento do deploy. Eu aprendi isso da maneira difícil :sweat_smile:.
+> Ateção! Não dê nomes muito genéricos às suas variáveis de ambiente. Elas podem ser sobrepostas por variáveis pré-definidas da Heroku no momento do deploy.
 
 
 
@@ -117,5 +116,3 @@ git add . # adicionando os arquivos de commit
 git commit -m "<mensagem_do_commit>" # commitando
 git push heroku main # fazendo o deploy
 ```
-
-	É isso! Sua aplicação web em PHP está acessível através da Heroku. Use `heroku open` para vê-la :)

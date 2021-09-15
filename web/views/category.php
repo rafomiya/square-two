@@ -3,7 +3,9 @@
         <?php
         require_once __DIR__ . '/../models/Product.php';
 
-        $prods = Product::get_products();
+        $cat = $_GET['c'] ?? "2";
+
+        $prods = Product::get_category_products($cat);
         Product::load_products($prods);
         ?>
     </div>
