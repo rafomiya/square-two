@@ -49,7 +49,8 @@ class Product
                 <p class="fw-bold   ">' . mb_strimwidth($prod['model'], 0, 16, '...') . '</p>
                 <p class="fs-5 mt-3">R$' . number_format($prod['price'], 2, ',', '.') . '</p>
                 <div class="d-grid gap-2">
-                    <button type="button" ' . $btn_disabled . ' class="btn btn-lg btn-primary">
+                    <button type="button" ' . $btn_disabled .
+            ' class="btn btn-lg btn-primary">
                         <span class="bi bi-bag-check" role="img" aria-label="bag-icon"></span>
                         Comprar
                     </button>    
@@ -58,7 +59,7 @@ class Product
                         Detalhes
                     </button>
                 </div>
-                </div>';
+            </div>';
         }
     }
 

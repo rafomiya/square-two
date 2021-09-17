@@ -11,13 +11,19 @@ class Database
 
         try {
             $this->pdo = new PDO('mysql:dbname=' . $dbname . ';host=' . $server, $user, $password);
-        } catch (Exception $e) {
-            $server = getenv("LOCAL_SERVER");
-            $user = getenv("LOCAL_USER");
-            $dbname = getenv("LOCAL_NAME");
-            $password = getenv("LOCAL_PASSWORD");
+        } catch (PDOException $e) {
+            if (str_contains(strtolower($e->getMessage()), "connection refused")) {
+                $server = getenv("LOCAL_SERVER");
+                $user = getenv("LOCAL_USER");
+                $dbname = getenv("LOCAL_NAME");
+                $password = getenv("LOCAL_PASSWORD");
 
-            $this->pdo = new PDO('mysql:dbname=' . $dbname . ';host=' . $server, $user, $password);
+                try {
+                    $this->pdo = new PDO('mysql:dbname=' . $dbname . ';host=' . $server, $user, $password);
+                } catch (Exception $e) {
+                    echo '<script>document.location = "./../views/error.php"</script>';
+                }
+            }
         }
     }
 }

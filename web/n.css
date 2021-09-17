@@ -35,7 +35,7 @@ nav[class="navbar navbar-dark navbar-expand-lg w-100"] {
     background-color: #fcfcfc;
     padding: 1em;
     float: left;
-    width: 20% !important;
+    width: 25% !important;
     box-shadow: 0;
     transition: box-shadow 1s;
     border: 1px solid #eee;
@@ -57,6 +57,7 @@ footer {
     content: "";
     display: table;
     clear: both;
+    width: 80%;
 }
 
 footer p {
@@ -82,6 +83,14 @@ div[id="header"]>img {
 
 .bw {
     filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    transition: 0.1s;
+}
+
+.prod:hover .bw {
+    filter: grayscale(30%);
+    -webkit-filter: grayscale(30%);
+    transition: 0.5s;
 }
 
 .prod>* {
@@ -102,6 +111,29 @@ div[id="header"]>img {
     transform: translate(-50%, -50%);
 }
 
+.error-body {
+    background-color: rgba(18, 18, 18);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* height: 100%; */
+}
+
+.neutral-face {
+    font-size: 120em;
+    top: -50%;
+    left: -35%;
+    color: rgba(24, 24, 24, 1);
+    display: block;
+    position: fixed;
+}
+
+.error-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 #login-body, #signin-body {
     background: rgb(36, 65, 66);
     background: linear-gradient(213deg, rgba(36, 65, 66, 1) 0%, rgba(24, 48, 48, 1) 100%);
@@ -109,9 +141,19 @@ div[id="header"]>img {
     background-attachment: fixed;
 }
 
+div[class="container-fluid"]>div[id="products"]
+/* class="line mb-3 mt-3 mx-auto mx-5"> */
+
+    {
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
 @media screen and (max-width: 600px) {
     .prod {
-        width: 100% !important;
+        width: 90% !important;
+        margin-right: auto;
+        margin-left: auto;
     }
     body {
         padding: 0;
@@ -133,5 +175,17 @@ div[id="header"]>img {
     }
     #login, #signin {
         width: 90%;
+    }
+    div[class="container-fluid"]>div[id="products"] {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .line {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-right: 0;
+        margin-left: 0;
+        align-items: center;
     }
 }
