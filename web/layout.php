@@ -16,13 +16,13 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!-- External CSS -->
-    <link type="text/css" rel="stylesheet" href="<?= './../n.css' ?>" />
+    <link type="text/css" rel="stylesheet" href="<?= './../style.css' ?>" />
 </head>
 
 <body>
     <?php
     $child_view = $child_view ?? "index.php";
-    include __DIR__ . '/views/navbar.html';
+    include __DIR__ . '/views/navbar.php';
     include __DIR__ . '/views/header.html';
 
     include __DIR__ . "/views/" . $child_view;

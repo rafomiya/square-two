@@ -2,13 +2,16 @@
 
 class Database
 {
+    /**
+     * Defines a Database instance.
+     */
     function __construct()
     {
         $server = getenv("DB_SERVER");
         $user = getenv("DB_USER");
         $dbname = getenv("DB_NAME");
         $password = getenv("DB_PASSWORD");
-
+        
         try {
             $this->pdo = new PDO('mysql:dbname=' . $dbname . ';host=' . $server, $user, $password);
         } catch (PDOException $e) {
@@ -17,11 +20,11 @@ class Database
                 $user = getenv("LOCAL_USER");
                 $dbname = getenv("LOCAL_NAME");
                 $password = getenv("LOCAL_PASSWORD");
-
+                
                 try {
                     $this->pdo = new PDO('mysql:dbname=' . $dbname . ';host=' . $server, $user, $password);
                 } catch (Exception $e) {
-                    echo '<script>document.location = "./../views/error.php"</script>';
+                    echo '<script>document.location = "../views/error.php"</script>';
                 }
             }
         }

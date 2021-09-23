@@ -1,5 +1,6 @@
 * {
-    margin: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -99,7 +100,6 @@ div[id="header"]>img {
 }
 
 #login, #signin {
-    /* border: 2px solid #eee; */
     width: 30%;
     background-color: #f8f8f8;
     border-radius: 1em;
@@ -115,14 +115,13 @@ div[id="header"]>img {
     background-color: rgba(18, 18, 18);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    /* height: 100%; */
 }
 
 .neutral-face {
-    font-size: 120em;
+    font-size: 80em;
     top: -50%;
-    left: -35%;
-    color: rgba(24, 24, 24, 1);
+    left: -25%;
+    color: rgba(24, 24, 24, 1) !important;
     display: block;
     position: fixed;
 }
@@ -141,10 +140,7 @@ div[id="header"]>img {
     background-attachment: fixed;
 }
 
-div[class="container-fluid"]>div[id="products"]
-/* class="line mb-3 mt-3 mx-auto mx-5"> */
-
-    {
+div[class="container-fluid"]>div[id="products"] {
     margin-right: 10%;
     margin-left: 10%;
 }

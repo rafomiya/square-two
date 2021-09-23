@@ -2,8 +2,7 @@
     <div class="container-fluid">
         <div class="mx-lg-auto order-0">
             <a class="navbar-brand mx-auto abs" href="index.php">Square-two</a>
-            <button class="navbar-toggler flex-grow-sm-1 flex-grow-0 me-2" type="button" data-bs-toggle="collapse"
-                data-bs-target=".hamburguer">
+            <button class="navbar-toggler flex-grow-sm-1 flex-grow-0 me-2" type="button" data-bs-toggle="collapse" data-bs-target=".hamburguer">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
@@ -20,8 +19,7 @@
                     <a class="nav-link" aria-current="page" href="./../controllers/category.php?c=2">3x3</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Big Cubes
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
@@ -33,8 +31,7 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Variados
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark">
@@ -53,18 +50,40 @@
                 </button>
             </form>
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">
-                        <span class="bi bi-cart-fill" role="img" aria-label="cart-icon"></span>
-                        Carrinho
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./../controllers/login.php">
-                        <span class="bi bi-person-fill" role="img" aria-label="person-icon"></span>
-                        Login
-                    </a>
-                </li>
+
+                <?php if (empty($_SESSION['id_user'])) : ?>
+
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../controllers/login.php">
+                            <span class="bi bi-person-fill" role="img" aria-label="person-icon"></span>
+                            Login
+                        </a>
+                    </li>
+
+                <?php else : ?>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="login-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Boas-vindas, <?= $_SESSION['name_user'] ?>!
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="login-dropdown">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <span class="bi bi-cart-fill"></span>
+                                    Carrinho
+                                </a>
+                            </li>
+                            <div class="dropdown-divider"></div>
+                            <li>
+                                <a class="dropdown-item" href="../exit.php">
+                                    Sair
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                <?php endif; ?>
+
             </ul>
         </div>
     </div>

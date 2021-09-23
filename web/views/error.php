@@ -16,10 +16,12 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!-- External CSS -->
-    <link type="text/css" rel="stylesheet" href="./../n.css" />
+    <link type="text/css" rel="stylesheet" href="./../style.css" />
 </head>
 
 <body class="error-body">
+    <?php include 'navbar.php'; ?>
+
     <span class="bi bi-emoji-neutral neutral-face"></span>
     <div class="p-5 error-message">
         <h1 class="display-1 my-5 text-light">Ocorreu um <strong class="text-danger">erro</strong>.</h1>

@@ -16,11 +16,11 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!-- External CSS -->
-    <link type="text/css" rel="stylesheet" href="./../n.css" />
+    <link type="text/css" rel="stylesheet" href="./../style.css" />
 </head>
 
 <body id="signin-body">
-    <?php include 'navbar.html'; ?>
+    <?php include 'navbar.php'; ?>
 
     <form id="signin" class="p-5 my-5" action="./../sign_up_handler.php" method="post">
         <h2>Cadastro</h2>

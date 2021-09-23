@@ -4,16 +4,22 @@ require_once __DIR__ . '/Database.php';
 
 class Product
 {
+    /**
+     * Creates a new instance of Login.
+     */
     private static function get_conn()
     {
         return (new Database())->pdo;
     }
 
+    /**
+     * Gets the array with all the products.
+     */
     public static function get_products()
     {
         $conn = Product::get_conn();
 
-        $sql = "select * from list_products;";
+        $sql = 'SELECT * from list_products;';
 
         $stm = $conn->prepare($sql);
         $stm->execute();
@@ -21,11 +27,14 @@ class Product
         return $stm->fetchAll();
     }
 
+    /**
+     * Gets the array with the new products.
+     */
     public static function get_new_products()
     {
         $conn = Product::get_conn();
 
-        $sql = "select * from list_products where is_new = 1;";
+        $sql = 'SELECT * from list_products where is_new = 1;';
 
         $stm = $conn->prepare($sql);
         $stm->execute();
@@ -33,6 +42,25 @@ class Product
         return $stm->fetchAll();
     }
 
+    /**
+     * Gets all the products of certain category.
+     */
+    public static function get_category_products($id_cat)
+    {
+        $conn = Product::get_conn();
+
+        $sql = 'SELECT * from list_categories where id_cat = :id_cat;';
+
+        $stm = $conn->prepare($sql);
+        $stm->bindValue(':id_cat', $id_cat);
+        $stm->execute();
+
+        return $stm->fetchAll();
+    }
+
+    /**
+     * Loads the products with the correct style.
+     */
     public static function load_products($prods)
     {
         echo '<h2 class="mb-3">' . count($prods) . ' resultados encontrados.</h2>';
@@ -61,18 +89,5 @@ class Product
                 </div>
             </div>';
         }
-    }
-
-    public static function get_category_products($id_cat)
-    {
-        $conn = Product::get_conn();
-
-        $sql = "select * from list_categories where id_cat = :id_cat;";
-
-        $stm = $conn->prepare($sql);
-        $stm->bindValue(":id_cat", $id_cat);
-        $stm->execute();
-
-        return $stm->fetchAll();
     }
 }
