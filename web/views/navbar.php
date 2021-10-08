@@ -52,6 +52,7 @@
             <ul class="navbar-nav">
 
                 <?php if (empty($_SESSION['id_user'])) : ?>
+                    <!-- if (nenhum usuário está logado) -->
 
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="../controllers/login.php">
@@ -60,7 +61,8 @@
                         </a>
                     </li>
 
-                <?php else : ?>
+                <?php elseif ($_SESSION['level_user'] == 0) : ?>
+                    <!-- elseif (o usuário logado é um cliente) -->
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="login-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -76,6 +78,31 @@
                             <div class="dropdown-divider"></div>
                             <li>
                                 <a class="dropdown-item" href="../exit.php">
+                                    <span class="bi bi-box-arrow-right"></span>
+                                    Sair
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                <?php else : ?>
+                    <!-- else (o usuário logado é um admin) -->
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="login-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Administrador
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="login-dropdown">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <span class="bi bi-gear-fill"></span>
+                                    Configurações
+                                </a>
+                            </li>
+                            <div class="dropdown-divider"></div>
+                            <li>
+                                <a class="dropdown-item" href="../exit.php">
+                                    <span class="bi bi-box-arrow-right"></span>
                                     Sair
                                 </a>
                             </li>

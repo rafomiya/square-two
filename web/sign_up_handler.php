@@ -1,22 +1,24 @@
 <?php
 require_once __DIR__ . '/models/User.php';
 
-$user = new User(
-    $_POST['nome'],
-    $_POST['email'],
-    $_POST['senha'],
-    $_POST['endereco'],
-    $_POST['cidade'],
-    $_POST['cep']
-);
 
 try {
+    $user = new User(
+        $_POST['nome'],
+        $_POST['email'],
+        $_POST['senha'],
+        $_POST['cidade'],
+        $_POST['endereco'],
+        $_POST['num_endereco'],
+        $_POST['cep']
+    );
+
     $user->insert_user();
-    echo 'Sucesso';
-} catch (Exception $e) {
-    var_dump($e);
+} catch (PDOException $e) {
+    if ($e->errorInfo[1] == 1062)
+        echo '<script>document.location = "controllers/sign_up.php?e=1";</script>';
+} catch (InvalidArgumentException $e) {
+    echo '<script>document.location = "controllers/sign_up.php?e=2";</script>';
 }
 
-var_dump($user);
-
-# Considerar criar uma tabela de login, e separá-la da tabela de usuário. Ou pensar em outras formas de armazenar e validar as informações de login.
+echo '<script>document.location = "controllers/login.php"</script>';
