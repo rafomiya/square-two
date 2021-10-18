@@ -28,11 +28,11 @@ class Login
     {
         $conn = Login::get_conn();
 
-        $sql = "SELECT id_user from user where email_user = :email and password_user = :senha;";
+        $sql = 'SELECT id_user from user where email_user = :email and password_user = :senha;';
 
         $stm = $conn->prepare($sql);
-        $stm->bindValue(":email", $this->email);
-        $stm->bindValue(":senha", $this->senha);
+        $stm->bindValue(':email', $this->email);
+        $stm->bindValue(':senha', $this->senha);
 
         $stm->execute();
 

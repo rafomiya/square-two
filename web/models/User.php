@@ -38,7 +38,7 @@ class User
         $conn = User::get_conn();
 
         $sql =
-        'INSERT INTO user (
+            'INSERT INTO user (
             name_user,
             email_user,
             password_user,
@@ -93,7 +93,7 @@ class User
         $_SESSION['level_user'] = $row['level_user'];
         $_SESSION['name_user'] = $fisrt_name;
     }
-    
+
     // fazer consistencia do cpf
-    
+
 }

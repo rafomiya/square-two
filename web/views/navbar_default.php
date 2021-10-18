@@ -1,4 +1,4 @@
-<nav id="navbar-absolute" class="navbar navbar-dark navbar-expand-lg w-100">
+<nav id="navbar-default" class="navbar navbar-dark navbar-expand-lg w-100">
     <div class="container-fluid">
         <div class="mx-lg-auto order-0">
             <a class="navbar-brand mx-auto abs" href="index.php">Square-two</a>

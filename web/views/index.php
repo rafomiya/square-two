@@ -3,8 +3,16 @@
         <?php
         require_once __DIR__ . '/../models/Product.php';
 
-        $prods = Product::get_products();
-        Product::load_products($prods);
+
+        $search = $_GET['search'] ?? '';
+
+        if ($search == '') {
+            $prods = Product::get_products();
+            Product::load_products($prods);
+        } else {
+            $prods = Product::get_search($search);
+            Product::load_products($prods);
+        }
         ?>
     </div>
 </div>

@@ -1,15 +1,27 @@
+:root {
+    --white: #fbfbfb;
+    --black: #121212;
+    --gray: #eee;
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #fbfbfb;
+    background-color: var(--white);
 }
 
-nav[class="navbar navbar-dark navbar-expand-lg w-100"] {
+#navbar-absolute {
     background-color: rgba(0, 0, 0, 0);
     position: absolute;
+    z-index: 1;
+}
+
+#navbar-default {
+    background-color: var(--black);
+    position: block;
     z-index: 1;
 }
 
@@ -33,13 +45,12 @@ nav[class="navbar navbar-dark navbar-expand-lg w-100"] {
 
 .prod {
     padding-top: 2em;
-    background-color: fcfcfc;
+    background-color: var(--white);
     padding: 1em;
     float: left;
     width: 25% !important;
     box-shadow: 0;
     transition: box-shadow 1s;
-    border: 1px solid #eee;
 }
 
 .prod:hover {
@@ -51,7 +62,7 @@ nav[class="navbar navbar-dark navbar-expand-lg w-100"] {
 }
 
 footer {
-    background-color: #eee;
+    background-color: var(--gray);
 }
 
 .line {
@@ -103,7 +114,7 @@ div[id="header"] {
 
 #login, #signin {
     width: 30%;
-    background-color: #f8f8f8;
+    background-color: var(--white);
     border-radius: 1em;
     margin: 0;
     position: absolute;
@@ -147,6 +158,17 @@ div[class="container-fluid"]>div[id="products"] {
     margin-left: 10%;
 }
 
+#img-details:hover>img.bw {
+    filter: grayscale(30%);
+    -webkit-filter: grayscale(30%);
+    transition: 0.5s;
+}
+
+#form-product {
+    margin-right: 33%;
+    margin-left: 33%;
+}
+
 @media screen and (max-width: 600px) {
     .prod {
         width: 90% !important;
@@ -157,7 +179,7 @@ div[class="container-fluid"]>div[id="products"] {
         padding: 0;
     }
     nav[class="navbar navbar-dark navbar-expand-lg w-100"] {
-        background-color: #212529;
+        background-color: var(--black);
     }
     a[class="navbar-brand mx-auto abs"] {
         display: none;
@@ -188,5 +210,15 @@ div[class="container-fluid"]>div[id="products"] {
     }
     div[id="header"] {
         background-image: url("./images/jumbotron_vertical.jpg");
+    }
+    #foot {
+        position: relative !important;
+    }
+    #img-details {
+        width: 90%;
+    }
+    #form-product {
+        margin-right: 0;
+        margin-left: 0;
     }
 }
