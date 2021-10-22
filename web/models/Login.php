@@ -28,22 +28,22 @@ class Login
     {
         $conn = Login::get_conn();
 
-        $sql = 'SELECT id_user from user where email_user = :email and password_user = :senha;';
+        $sql = 'SELECT id_user, password_user from user where email_user = :email;';
 
         $stm = $conn->prepare($sql);
         $stm->bindValue(':email', $this->email);
-        $stm->bindValue(':senha', $this->senha);
-
         $stm->execute();
 
         $rows = $stm->fetchAll();
 
-        if (count($rows) != 1) {
-            return False;
+        if (count($rows) > 0) {
+            $senha = $rows[0]['password_user'];
+
+            if (password_verify($this->senha, $senha)) {
+                return $rows[0]['id_user'];
+            }
         }
 
-        $id = $rows[0]['id_user'];
-
-        return $id;
+        return False;
     }
 }

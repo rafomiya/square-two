@@ -4,6 +4,9 @@ class Database
     /**
      * Defines a Database instance.
      */
+
+    const HASH_COST = 13;
+
     function __construct()
     {
         $server = getenv('LOCAL_SERVER');

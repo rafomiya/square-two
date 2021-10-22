@@ -60,9 +60,11 @@ class User
 
         $stm = $conn->prepare($sql);
 
+        $hashed_pw = password_hash($this->senha, PASSWORD_BCRYPT, array('cost' => Database::HASH_COST));
+
         $stm->bindValue(':nome', $this->nome);
         $stm->bindValue(':email', $this->email);
-        $stm->bindValue(':senha', $this->senha);
+        $stm->bindValue(':senha', $hashed_pw);
         $stm->bindValue(':nivel', $this->nivel);
         $stm->bindValue(':cidade', $this->cidade);
         $stm->bindValue(':endereco', $this->endereco);
