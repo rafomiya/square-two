@@ -13,7 +13,7 @@ class Database
         $user = getenv('LOCAL_USER');
         $dbname = getenv('LOCAL_NAME');
         $password = getenv('LOCAL_PASSWORD');
-        
+
         try {
             $this->pdo = new PDO('mysql:dbname=' . $dbname . ';host=' . $server, $user, $password);
         } catch (PDOException $e) {

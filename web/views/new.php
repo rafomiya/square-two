@@ -3,7 +3,9 @@
         <?php
         require_once __DIR__ . '/../models/Product.php';
 
+        
         $prods = Product::get_new_products();
+        echo 'a';
         Product::load_products($prods);
         ?>
     </div>

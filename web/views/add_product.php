@@ -5,14 +5,15 @@ require_once __DIR__ . '/../models/Brand.php';
 $categories = Category::get_categories();
 $brands = Brand::get_brands();
 ?>
+
 <div id="form-product" class="my-4 mb-5">
-    <form class="mx-4 mt-4 mb-5" action="" method="post">
+    <form class="mx-4 mt-4 mb-5" action="../add_product_handler.php" method="post">
         <h1>Cadastro de produto</h1>
 
         <div class="form-group row mt-3">
             <label for="model" class="text-lg-end col-sm col-form-label">Modelo:</label>
             <div class="col-sm-9">
-                <input class="form-control" required type="text" name=" model" />
+                <input class="form-control" required type="text" name="model" />
             </div>
         </div>
 
@@ -26,8 +27,8 @@ $brands = Brand::get_brands();
 
                     <?php foreach ($categories as $category) : ?>
 
-                        <option value="<?= $category['id'] ?>">
-                            <?= $category['category'] ?>
+                        <option value="<?= $category->id ?>">
+                            <?= $category->name ?>
                         </option>
 
                     <?php endforeach; ?>
@@ -46,8 +47,8 @@ $brands = Brand::get_brands();
 
                     <?php foreach ($brands as $brand) : ?>
 
-                        <option value="<?= $brand['id'] ?>">
-                            <?= $brand['brand'] ?>
+                        <option value="<?= $brand->id ?>">
+                            <?= $brand->name ?>
                         </option>
 
                     <?php endforeach; ?>
