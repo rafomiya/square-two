@@ -6,7 +6,9 @@ require_once __DIR__ . '/models/Product.php';
 use Aws\S3\S3Client;
 use Aws\S3\Exception\S3Exception;
 
-// insertion on s3 bucket
+$id = $_POST['p'] ?? $_GET['p'];
+
+// update on s3 bucket
 $image_name = $_FILES['image']['name'];
 $extension = end(explode('.', $image_name));
 
@@ -21,6 +23,7 @@ $s3 = new S3Client([
     ]
 ]);
 
+// inserting the new image to the bucket
 try {
     $result = $s3->putObject([
         'Bucket' => getenv('AWS_S3_BUCKET'),
@@ -31,13 +34,13 @@ try {
 }
 // erro
 catch (S3Exception $e) {
-    header('Location: controllers/add_product.php?e=1');
+    header('Location: controllers/edit_product.php?e=1');
 }
 
-// insertion on the database
+// update on the database
 try {
     $product = new Product(
-        0,
+        (int) $id,
         $_POST['model'],
         new Brand(
             $_POST['brand'],
@@ -54,7 +57,7 @@ try {
         $_POST['inventory']
     );
 
-    $product->insert();
+    $product->update();
 }
 // erro
 catch (Exception $e) {
@@ -62,4 +65,4 @@ catch (Exception $e) {
 }
 
 // execução sem erros
-header('Location: controllers/add_product.php?e=2');
+header('Location: controllers/list.php?e=2');

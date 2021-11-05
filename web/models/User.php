@@ -33,7 +33,7 @@ class User
     /**
      * Inserts an user to the database.
      */
-    public function insert_user()
+    public function insert()
     {
         $conn = User::get_conn();
 

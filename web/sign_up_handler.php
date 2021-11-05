@@ -13,7 +13,7 @@ try {
         $_POST['cep']
     );
 
-    $user->insert_user();
+    $user->insert();
 } catch (PDOException $e) {
     if ($e->errorInfo[1] == 1062)
         echo '<script>document.location = "controllers/sign_up.php?e=1";</script>';

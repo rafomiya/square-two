@@ -13,6 +13,5 @@ if ($id) {
     session_start();
     User::set_session($id);
     echo '<script>document.location = "controllers/"</script>';
-} else {
+} else
     echo '<script>document.location = "controllers/login.php?e=1";</script>';
-}

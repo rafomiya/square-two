@@ -98,13 +98,11 @@ div[id="header"] {
 .bw {
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
-    transition: 0.1s;
 }
 
 .prod:hover .bw {
-    filter: grayscale(30%);
-    -webkit-filter: grayscale(30%);
-    transition: 0.5s;
+    filter: none;
+    -webkit-filter: none;
 }
 
 .prod>* {
@@ -161,12 +159,16 @@ div[class="container-fluid"]>div[id="products"] {
 #img-details:hover>img.bw {
     filter: grayscale(30%);
     -webkit-filter: grayscale(30%);
-    transition: 0.5s;
 }
 
 #form-product {
     margin-right: 33%;
     margin-left: 33%;
+}
+
+.bw:hover {
+    filter: none;
+    -webkit-filter: none;
 }
 
 @media screen and (max-width: 600px) {

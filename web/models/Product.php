@@ -81,7 +81,6 @@ class Product
      */
     public static function get_new_products(): array
     {
-        var_dump(0);
         $conn = Product::get_conn();
 
         $sql = 'SELECT * from list_details where is_new = 1;';
@@ -295,5 +294,92 @@ class Product
                 </div>
             </div>
 <?php endforeach;
+    }
+
+    public static function count()
+    {
+        $conn = Product::get_conn();
+        $sql = 'SELECT count(*) from product;';
+
+        $stm = $conn->prepare($sql);
+        $stm->execute();
+
+        return $stm->fetchAll()[0][0];
+    }
+
+    public function insert()
+    {
+        $conn = Product::get_conn();
+        $sql =
+            'INSERT INTO product
+            (
+                model_prod,
+                id_brand,
+                price_prod,
+                descr_prod,
+                image_prod,
+                id_cat,
+                is_new,
+                inventory
+            ) values (
+                :model,
+                :id_brand,
+                :price,
+                :descr_prod,
+                :image_prod,
+                :id_category,
+                :is_new,
+                :inventory
+            );';
+
+        $stm = $conn->prepare($sql);
+        $stm->bindValue(':model', $this->model);
+        $stm->bindValue(':id_brand', $this->brand->id);
+        $stm->bindValue(':price', $this->price);
+        $stm->bindValue(':descr_prod', $this->description);
+        $stm->bindValue(':image_prod', $this->image);
+        $stm->bindValue(':id_category', $this->category->id);
+        $stm->bindValue(':is_new', $this->is_new);
+        $stm->bindValue(':inventory', $this->inventory);
+        $stm->execute();
+    }
+
+    public function update()
+    {
+        $conn = Product::get_conn();
+        $sql =
+            'UPDATE product
+            SET
+                model_prod = :model,
+                id_brand = :id_brand,
+                price_prod = :price,
+                descr_prod = :descr_prod,
+                image_prod = :image_prod,
+                id_cat = :id_category,
+                is_new = :is_new,
+                inventory = :inventory
+            WHERE id_prod = :id;';
+
+        $stm = $conn->prepare($sql);
+        $stm->bindValue(':model', $this->model);
+        $stm->bindValue(':id_brand', $this->brand->id);
+        $stm->bindValue(':price', $this->price);
+        $stm->bindValue(':descr_prod', $this->description);
+        $stm->bindValue(':image_prod', $this->image);
+        $stm->bindValue(':id_category', $this->category->id);
+        $stm->bindValue(':is_new', $this->is_new);
+        $stm->bindValue(':inventory', $this->inventory);
+        $stm->bindValue(':id', $this->id);
+        $stm->execute();
+    }
+
+    public static function delete($id)
+    {
+        $conn = Product::get_conn();
+        $sql = 'DELETE FROM product where id_prod = :id';
+
+        $stm = $conn->prepare($sql);
+        $stm->bindValue(':id', $id);
+        $stm->execute();
     }
 }
