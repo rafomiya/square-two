@@ -6,13 +6,13 @@
 
         $search = $_GET['search'] ?? '';
 
-        if ($search == '') {
+        if ($search == '')
             $prods = Product::get_products();
-            Product::load_products($prods);
-        } else {
+
+        else
             $prods = Product::get_search($search);
-            Product::load_products($prods);
-        }
+
+        Product::load_products($prods);
         ?>
     </div>
 </div>

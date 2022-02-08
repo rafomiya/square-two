@@ -1,6 +1,65 @@
-<div id="header" class="w-100 container-fluid p-0">
-    <div class="position-absolute mx-sm-auto overlay">
-        <h1 class="display-1 text text-light text-center">Square-two</h1>
-        <p class="text-muted fs-4 text text-center">Boas vindas à sua melhor loja de puzzles.</p>
+<div id="header-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="0" class="active" aria-current="true"
+            aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#header-carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
     </div>
-</div>
+    <div class="carousel-inner">
+        <div id="img1" class="vh-100 vw-auto carousel-item active">
+            <img src="../images/jumbotron_horizontal.png" class="d-none d-sm-block h-100 w-auto"
+                style="background-size: cover;">
+            <img src="../images/jumbotron_vertical.png" class="d-block d-sm-none h-100 w-auto"
+                style="background-size: cover;">
+        </div>
+        <div id="img2" class="vh-100 vw-auto carousel-item">
+            <img src="../images/gan_horizontal.png" class="d-none d-sm-block h-100 v-100"
+                style="background-size: cover;">
+            <img src="../images/gan_vertical.png" class="d-block d-sm-none h-100 w-auto"
+                style="background-size: cover;">
+        </div>
+        <div id="img3" class="vh-100 vw-auto carousel-item">
+            <img src="../images/whitegan_horizontal.png" class="d-none d-sm-block h-100 v-100"
+                style="background-size: cover;">
+            <img src="../images/whitegan_vertical.png" class="d-block d-sm-none h-100 w-100"
+                style="background-size: cover;">
+        </div>
+        <div id="img4" class="vh-100 vw-auto carousel-item">
+            <img src="../images/ganskewb_horizontal.png" class="d-none d-sm-block h-100 v-100"
+                style="background-size: cover;">
+            <img src="../images/ganskewb_vertical.png" class="d-block d-sm-none h-100 w-100"
+                style="background-size: cover;">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Próximo</span>
+    </button>
+    </div>
+    <script>
+        let imgs = [
+            document.getElementById('img1'),
+            document.getElementById('img2'),
+            document.getElementById('img3'),
+            document.getElementById('img4')
+        ];
+
+        console.log(imgs);
+
+        for (const img of imgs)
+            window.addEventListener('resize', () => {
+                if (img.style.height > img.style.width) {
+                    img.style.height = '100%';
+                    img.style.width = 'auto';
+                } else {
+                    img.style.height = 'auto';
+                    img.style.width = '100%';
+                }
+            });
+    </script>
+    

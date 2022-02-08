@@ -1,8 +1,8 @@
 <?php
-
 require_once __DIR__ . '/Database.php';
 require_once __DIR__ . '/Brand.php';
 require_once __DIR__ . '/Category.php';
+
 
 class Product
 {
@@ -222,6 +222,9 @@ class Product
         );
     }
 
+    /**
+     * Gets all the products that matches the search.
+     */
     public static function get_search($search): array
     {
         $conn = Product::get_conn();
@@ -274,8 +277,9 @@ class Product
         $aws_link = getenv('AWS_LINK');
 
         foreach ($prods as $prod) :
+
             $img_bw = $prod->inventory == 0 ? 'bw' : '';
-            $btn_disabled = $prod->inventory == 0 ? 'disabled' : ''; ?>
+            $disabled = $prod->inventory == 0 ? 'disabled-pointer' : ''; ?>
 
             <div class="prod">
                 <img class="<?= $img_bw ?>" src="<?= $aws_link . $prod->image ?>" />
@@ -283,19 +287,24 @@ class Product
                 <h4 class="fw-bold"><?= mb_strimwidth($prod->model, 0, 16, '...') ?></h4>
                 <p class="fs-5 mt-3">R$<?= number_format($prod->price, 2, ',', '.') ?></p>
                 <div class="d-grid gap-2">
-                    <button type="button" <?= $btn_disabled ?> class="btn btn-lg btn-primary">
+                    <a href="../controllers/cart.php?p=<?= $prod->id ?>" type="button" class="btn btn-lg btn-primary <?= $disabled ?>">
                         <span class="bi bi-bag-check" role="img" aria-label="bag-icon"></span>
                         Comprar
-                    </button>
+                    </a>
                     <a href="../controllers/details.php?p=<?= $prod->id ?>" type="button" class="btn btn-lg btn-outline-secondary">
                         <span class="bi bi-info-circle" role="img" aria-label="info-icon"></span>
                         Detalhes
                     </a>
                 </div>
             </div>
-<?php endforeach;
+
+        <?php endforeach;
     }
 
+
+    /**
+     * Gets the quantity of products on the database.
+     */
     public static function count()
     {
         $conn = Product::get_conn();
@@ -307,6 +316,9 @@ class Product
         return $stm->fetchAll()[0][0];
     }
 
+    /**
+     * Inserts a product into the database.
+     */
     public function insert()
     {
         $conn = Product::get_conn();
@@ -344,6 +356,9 @@ class Product
         $stm->execute();
     }
 
+    /**
+     * Updates a product from the database.
+     */
     public function update()
     {
         $conn = Product::get_conn();
@@ -367,12 +382,15 @@ class Product
         $stm->bindValue(':descr_prod', $this->description);
         $stm->bindValue(':image_prod', $this->image);
         $stm->bindValue(':id_category', $this->category->id);
-        $stm->bindValue(':is_new', $this->is_new);
+        $stm->bindValue(':is_new', $this->is_new, PDO::PARAM_BOOL);
         $stm->bindValue(':inventory', $this->inventory);
         $stm->bindValue(':id', $this->id);
         $stm->execute();
     }
 
+    /**
+     * Deletes a product from the database.
+     */
     public static function delete($id)
     {
         $conn = Product::get_conn();
@@ -381,5 +399,41 @@ class Product
         $stm = $conn->prepare($sql);
         $stm->bindValue(':id', $id);
         $stm->execute();
+    }
+
+    /**
+     * Get products by ids.
+     */
+    public static function get_by_ids($ids)
+    {
+        $conn = Product::get_conn();
+        $sql = 'SELECT * FROM list_details where id in (' . implode(',', $ids) . ');';
+
+        $stm = $conn->prepare($sql);
+        $stm->execute();
+
+        $products = array();
+
+        foreach ($stm->fetchAll() as $row)
+            $products[] =
+                new Product(
+                    $row['id'],
+                    $row['model'],
+                    new Brand(
+                        $row['id_brand'],
+                        $row['brand']
+                    ),
+                    $row['price'],
+                    $row['description'],
+                    $row['image'],
+                    new Category(
+                        $row['id_category'],
+                        $row['category']
+                    ),
+                    $row['is_new'],
+                    $row['inventory']
+                );
+
+        return $products;
     }
 }

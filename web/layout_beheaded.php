@@ -13,15 +13,19 @@
 </head>
 
 <body>
-    <?php
-    include __DIR__ . '/views/navbar_default.php';
+    <?php include __DIR__ . '/views/navbar_default.php'; ?>
 
-    include __DIR__ . '/views/' . $child_view;
+    <div id="content" class="container-fluid">
+        <?php include __DIR__ . '/views/' . $child_view; ?>
+    </div>
 
-    $footer = $footer ?? 'fixed_footer.php';
+    <?php include __DIR__ . '/views/footer.html'; ?>
 
-    include __DIR__ . '/views/' . $footer;
-    ?>
+    <script>
+        let navbarHeight = $('#navbar-default').outerHeight();
+        let footerHeight = $('#footer').outerHeight();
+        $('#content').css('min-height', `calc(100vh - ${navbarHeight}px - ${footerHeight}px)    `);
+    </script>
 </body>
 
 </html>

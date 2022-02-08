@@ -1,4 +1,4 @@
-<nav id="navbar-absolute" class="navbar navbar-dark navbar-expand-lg w-100">
+<nav id="navbar-default" class="navbar navbar-dark navbar-expand-lg w-100 navbar-default" style="z-index: 900;">
     <div class="container-fluid">
         <div class="mx-lg-auto order-0">
             <a class="navbar-brand mx-auto abs" href="index.php">Square-two</a>
@@ -23,11 +23,11 @@
                         Big Cubes
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="./../controllers/category.php?c=5">4x4</a></li>
-                        <li><a class="dropdown-item" href="./../controllers/category.php?c=6">5x5</a></li>
-                        <li><a class="dropdown-item" href="./../controllers/category.php?c=7">6x6</a></li>
-                        <li><a class="dropdown-item" href="./../controllers/category.php?c=8">7x7</a></li>
-                        <li><a class="dropdown-item" href="./../controllers/category.php?c=14">8x8</a></li>
+                        <li><a class="dropdown-item" href="../controllers/category.php?c=5">4x4</a></li>
+                        <li><a class="dropdown-item" href="../controllers/category.php?c=6">5x5</a></li>
+                        <li><a class="dropdown-item" href="../controllers/category.php?c=7">6x6</a></li>
+                        <li><a class="dropdown-item" href="../controllers/category.php?c=8">7x7</a></li>
+                        <li><a class="dropdown-item" href="../controllers/category.php?c=14">8x8</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -70,11 +70,24 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="login-dropdown">
                             <li>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="../controllers/cart.php">
                                     <span class="bi bi-cart-fill"></span>
                                     Carrinho
                                 </a>
                             </li>
+                            <li>
+                                <a class="dropdown-item" href="../controllers/user_area.php">
+                                    <span class="bi bi-person-circle"></span>
+                                    Área do usuário
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="../controllers/contact.php">
+                                    <span class="bi bi-chat"></span>
+                                    Contato
+                                </a>
+                            </li>
+
                             <div class="dropdown-divider"></div>
                             <li>
                                 <a class="dropdown-item" href="../exit.php">
@@ -97,6 +110,12 @@
                                 <a class="dropdown-item" href="../controllers/admin.php">
                                     <span class="bi bi-gear-fill"></span>
                                     Configurações
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="../controllers/user_area.php">
+                                    <span class="bi bi-person-circle"></span>
+                                    Área do usuário
                                 </a>
                             </li>
                             <div class="dropdown-divider"></div>

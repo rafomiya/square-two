@@ -9,7 +9,8 @@
 
     <link rel="icon" href="../images/favicon.ico">
 
-    <?php require_once __DIR__ . '/imports.html'; ?>
+    <?php require_once __DIR__ . '/imports.html';
+    ?>
 </head>
 
 <body>
@@ -18,11 +19,19 @@
 
     include __DIR__ . '/views/navbar.php';
     include __DIR__ . '/views/header.html';
-
-    include __DIR__ . '/views/' . $child_view;
-
-    include __DIR__ . '/views/footer.html';
     ?>
+
+    <div class="container-fluid">
+        <?php include __DIR__ . '/views/' . $child_view; ?>
+    </div>
+
+    <?php include __DIR__ . '/views/footer.html'; ?>
+
+    <script>
+        let navbarHeight = $('#navbar-default').outerHeight();
+        let footerHeight = $('#footer').outerHeight();
+        $('#content').css('min-height', `calc(100vh - ${navbarHeight}px - ${footerHeight}px)`);
+    </script>
 </body>
 
 </html>

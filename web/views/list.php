@@ -1,9 +1,11 @@
 <?php
-if ($_SESSION['level_user'] != 1)
-    header('Location: index.php');
-
-
 require_once __DIR__ . '/../models/Product.php';
+require_once __DIR__ . '/../models/Utils.php';
+
+
+session_start();
+
+Utils::handle_not_admin();
 ?>
 <div class="container my-5">
     <!-- toast com a mensagem de sucesso -->
@@ -30,7 +32,7 @@ require_once __DIR__ . '/../models/Product.php';
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button id="confirm-button" type="button" class="btn btn-primary">Confirmar</button>
+                    <button id="confirm-button" type="button" class="btn btn-danger">Confirmar</button>
                 </div>
             </div>
         </div>
@@ -41,8 +43,7 @@ require_once __DIR__ . '/../models/Product.php';
     <div class="row p-0 gx-3">
 
         <?php foreach (Product::get_products() as $prod) : ?>
-            <?php $img_bw = ($prod->inventory == 0) ? 'bw' : '';
-            ?>
+            <?php $img_bw = ($prod->inventory == 0) ? 'bw' : ''; ?>
 
             <div class="col-12 col-sm-4 gy-5">
                 <div class="row p-2 d-flex">
@@ -81,7 +82,7 @@ require_once __DIR__ . '/../models/Product.php';
             const id = event.relatedTarget.getAttribute('data-bs-product-id');
 
             document.querySelector('#confirm-button').onclick = () => {
-                window.location = '../delete_product_handler.php?p=' + id;
+                window.location = '../handlers/delete_product.php?p=' + id;
             };
         });
     </script>

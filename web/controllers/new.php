@@ -1,6 +1,9 @@
 <?php
+require_once __DIR__ . '/../models/Utils.php';
+
+
 session_start();
 
 $page_title = 'Lançamentos';
 $child_view = 'new.php';
-require_once __DIR__ . '/../layout_products.php';
+Utils::render_view($child_view, $page_title, 'layout_products.php');

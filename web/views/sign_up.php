@@ -12,8 +12,8 @@
     <?php require_once __DIR__ . '/../imports.html' ?>
 
     <script>
-        $(document).ready(function() {
-            $("#cep").mask("00000-000");
+        $(document).ready(() => {
+            $('#cep').mask('00000-000');
         });
     </script>
 </head>
@@ -23,8 +23,8 @@
 
     <?php
     $error_messages = array(
-        1 => 'E-mail já cadastrado',
-        2 => 'CEP inválido'
+        1 => 'E-mail já cadastrado.',
+        2 => 'CEP inválido.'
     );
     ?>
 
@@ -32,13 +32,13 @@
         <div id="toast-error" class="bg-danger toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="d-flex text-center">
                 <div class="toast-body text-center text text-white">
-                    Erro! <?= $error_messages[$_GET['e']] ?>.
+                    <?= $error_messages[$_GET['e']] ?>
                 </div>
             </div>
         </div>
     </div>
 
-    <form id="signin" class="p-5 my-5" action="../sign_up_handler.php" method="post">
+    <form id="signin" class="p-5 my-5" action="../handlers/sign_up.php" method="post">
         <h2>Cadastro</h2>
 
         <div class="form-group row mt-3">
@@ -100,10 +100,12 @@
     </form>
 
     <?php if ($_GET['e']) : ?>
+
         <script>
             const emailToast = new bootstrap.Toast(document.getElementById("toast-error"));
             emailToast.show();
         </script>
+
     <?php endif; ?>
 </body>
 

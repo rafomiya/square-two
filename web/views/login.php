@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <form id="login" class="p-5" action="../login_handler.php" method="post">
+    <form id="login" class="p-5" action="../handlers/login.php" method="post">
         <h2>Login</h2>
         <div class="form-group row mt-3">
             <label for="email" class="text-lg-end col-sm col-form-label">E-mail</label>
@@ -38,21 +38,28 @@
             <div class="col-sm-9">
                 <input type="password" class="form-control" required placeholder="Insira sua senha" name="senha">
             </div>
+            <a href="forgot_password.php" class="text-muted text-end mt-1">
+                Esqueceu a senha?
+            </a>
         </div>
+
         <button type="submit" class="btn btn-sm btn-success float-end d-block">
             <span class="bi bi-check">Entrar</span>
         </button>
-        <a href="sign_up.php" class="btn btn-sm btn-link">
+        <a href="sign_up.php" class="btn btn-link">
             Ainda não possui cadastro?
         </a>
     </form>
 
     <?php if ($_GET['e']) : ?>
+
         <script>
             const toast = new bootstrap.Toast(document.getElementById("toast-error"));
             toast.show();
         </script>
+
     <?php endif; ?>
+
 </body>
 
 </html>

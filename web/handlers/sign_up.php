@@ -1,9 +1,10 @@
 <?php
-require_once __DIR__ . '/models/User.php';
+require_once __DIR__ . '/../models/User.php';
 
 
 try {
     $user = new User(
+        0,
         $_POST['nome'],
         $_POST['email'],
         $_POST['senha'],
@@ -16,9 +17,9 @@ try {
     $user->insert();
 } catch (PDOException $e) {
     if ($e->errorInfo[1] == 1062)
-        echo '<script>document.location = "controllers/sign_up.php?e=1";</script>';
+        header('Location: ../controllers/sign_up.php?e=1');
 } catch (InvalidArgumentException $e) {
-    echo '<script>document.location = "controllers/sign_up.php?e=2";</script>';
+    header('Location: ../controllers/sign_up.php?e=2');
 }
 
-echo '<script>document.location = "controllers/login.php"</script>';
+header('Location: ../controllers/login.php');

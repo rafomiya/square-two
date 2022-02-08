@@ -4,7 +4,7 @@
         require_once __DIR__ . '/../models/Product.php';
 
 
-        $id_brand = (int) $_GET['b'] ?? '0';
+        $id_brand = $_GET['b'] ?? '0';
         $prods = Product::get_brand_products($id_brand);
         Product::load_products($prods);
         ?>

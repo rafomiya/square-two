@@ -1,7 +1,7 @@
-<nav id="navbar-default" class="navbar navbar-dark navbar-expand-lg w-100">
+<nav id="navbar-default" class="navbar navbar-dark navbar-expand-lg w-100" style="background-color: var(--black) !important; position: relative !important; z-index: 900;">
     <div class="container-fluid">
         <div class="mx-lg-auto order-0">
-            <a class="navbar-brand mx-auto abs" href="index.php">Square-two</a>
+            <a class="navbar-brand mx-auto abs" href="../controllers/index.php">Square-two</a>
             <button class="navbar-toggler flex-grow-sm-1 flex-grow-0 me-2" type="button" data-bs-toggle="collapse" data-bs-target=".hamburguer">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -70,11 +70,24 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="login-dropdown">
                             <li>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="../controllers/cart.php">
                                     <span class="bi bi-cart-fill"></span>
                                     Carrinho
                                 </a>
                             </li>
+                            <li>
+                                <a class="dropdown-item" href="../controllers/user_area.php">
+                                    <span class="bi bi-person-circle"></span>
+                                    Área do usuário
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="../controllers/contact.php">
+                                    <span class="bi bi-chat"></span>
+                                    Contato
+                                </a>
+                            </li>
+
                             <div class="dropdown-divider"></div>
                             <li>
                                 <a class="dropdown-item" href="../exit.php">
@@ -97,6 +110,12 @@
                                 <a class="dropdown-item" href="../controllers/admin.php">
                                     <span class="bi bi-gear-fill"></span>
                                     Configurações
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="../controllers/user_area.php">
+                                    <span class="bi bi-person-circle"></span>
+                                    Área do usuário
                                 </a>
                             </li>
                             <div class="dropdown-divider"></div>

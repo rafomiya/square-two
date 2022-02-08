@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__ . '/Database.php';
 
 
@@ -31,9 +30,9 @@ class Brand
 
         $sql =
         'SELECT
-                id_brand as `id`,
-                name_brand as `name`
-            from brand;';
+            id_brand as `id`,
+            name_brand as `name`
+        from brand;';
 
         $stm = $conn->prepare($sql);
         $stm->execute();

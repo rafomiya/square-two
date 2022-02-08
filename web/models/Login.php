@@ -1,6 +1,6 @@
 <?php
-
 require_once __DIR__ . '/Database.php';
+
 
 class Login
 {
@@ -39,9 +39,8 @@ class Login
         if (count($rows) > 0) {
             $senha = $rows[0]['password_user'];
 
-            if (password_verify($this->senha, $senha)) {
+            if (password_verify($this->senha, $senha))
                 return $rows[0]['id_user'];
-            }
         }
 
         return False;
