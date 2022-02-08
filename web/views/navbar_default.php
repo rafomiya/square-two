@@ -90,7 +90,7 @@
 
                             <div class="dropdown-divider"></div>
                             <li>
-                                <a class="dropdown-item" href="../exit.php">
+                                <a class="dropdown-item" href="../handlers/exit.php">
                                     <span class="bi bi-box-arrow-right"></span>
                                     Sair
                                 </a>
@@ -120,7 +120,7 @@
                             </li>
                             <div class="dropdown-divider"></div>
                             <li>
-                                <a class="dropdown-item" href="../exit.php">
+                                <a class="dropdown-item" href="../handlers/exit.php">
                                     <span class="bi bi-box-arrow-right"></span>
                                     Sair
                                 </a>
