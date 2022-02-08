@@ -1,10 +1,11 @@
 # Square-two
 [![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/rafomiya/square-two/blob/main/README.pt-br.md)
 
-Project of a virtual store, made with HTML, CSS and PHP. Deployed on [Heroku](https://www.heroku.com/).
-The current progress of the project can be seen [here](https://square-two.herokuapp.com/).
+Project of an e-commerce, made with HTML, CSS, Javascript and PHP, and deployed on [Heroku](https://www.heroku.com/).
 
-OBS: Due to dependency problems, the site is currently inactive.
+The application can be seen [here](https://square-two.herokuapp.com/).
+
+Since the project uses a free MySQL database, there's no guarantee it will remain active.
 
 ## Demo
 
