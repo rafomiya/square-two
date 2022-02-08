@@ -40,24 +40,24 @@ class User
 
         $sql =
             'INSERT INTO user (
-            name_user,
-            email_user,
-            password_user,
-            level_user,
-            city_user,
-            address_user,
-            address_number,
-            cep_user
-        ) values (
-            :nome,
-            :email,
-            :senha,
-            :nivel,
-            :cidade,
-            :endereco,
-            :numero_endereco,
-            :cep
-        );';
+                name_user,
+                email_user,
+                password_user,
+                level_user,
+                city_user,
+                address_user,
+                address_number,
+                cep_user
+            ) values (
+                :nome,
+                :email,
+                :senha,
+                :nivel,
+                :cidade,
+                :endereco,
+                :numero_endereco,
+                :cep
+            );';
 
         $stm = $conn->prepare($sql);
 
@@ -170,8 +170,6 @@ class User
             where id_user = :id;';
 
         $hashed_pw = password_hash($user->senha, PASSWORD_BCRYPT, array('cost' => Database::HASH_COST));
-
-
 
         $stm = $conn->prepare($sql);
         $stm->bindValue(':nome', $user->nome);

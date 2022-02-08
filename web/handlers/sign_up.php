@@ -15,11 +15,14 @@ try {
     );
 
     $user->insert();
-} catch (PDOException $e) {
-    if ($e->errorInfo[1] == 1062)
+} catch (\PDOException $e) {
+    if ($e->errorInfo[1] == 1062) {
         header('Location: ../controllers/sign_up.php?e=1');
+        exit();
+    }
 } catch (InvalidArgumentException $e) {
     header('Location: ../controllers/sign_up.php?e=2');
+    exit();
 }
 
 header('Location: ../controllers/login.php');
