@@ -1,6 +1,7 @@
 {
   "require": {
     "php": ">=8.1",
+    "ext-mbstring": "*",
     "aws/aws-sdk-php": "^3.199"
   }
 }
